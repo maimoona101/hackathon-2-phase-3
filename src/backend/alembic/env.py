@@ -32,7 +32,17 @@ if config.config_file_name is not None:
 config.set_main_option('sqlalchemy.url', settings.database_url)
 
 # Add our model's MetaData object here for 'autogenerate' support
-target_metadata = User.metadata
+
+# target_metadata = User.metadata
+
+target_metadata = [
+    User.metadata,
+    Todo.metadata,
+    Conversation.metadata,
+    Message.metadata,
+    ToolExecution.metadata,
+    UserSession.metadata
+]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
